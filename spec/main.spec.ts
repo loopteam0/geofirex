@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import { config, mockResponse } from './util';
@@ -22,12 +22,12 @@ describe('GeoFireX', () => {
     // const settings = { timestampsInSnapshots: true };
     // firestore.settings(settings);
 
-    gfx = new GeoFireClient( firebase );
+    gfx = new GeoFireClient(firebase);
   });
 
   test('says hello', () => {
     expect(firebase.apps.length).toBe(1);
-    expect(gfx.app).toBe( firebase );
+    expect(gfx.app).toBe(firebase);
   });
 
   describe('FirePoint', () => {
@@ -52,7 +52,7 @@ describe('GeoFireX', () => {
     test('should calculate distance', () => {
       const p = gfx.point(40.5, -80.0);
       expect(gfx.distance(p, gfx.point(40.49100679636276, -80))).toBeCloseTo(1.0);
-      expect(gfx.distance(p, gfx.point(-20, 30) )).toBeCloseTo(13099.698);
+      expect(gfx.distance(p, gfx.point(-20, 30))).toBeCloseTo(13099.698);
     });
 
     test('should calculate bearing', () => {
@@ -138,9 +138,9 @@ describe('GeoFireX', () => {
     });
     test('should have query metadata', async done => {
 
-        expect(data[0].hitMetadata.bearing).toBeDefined();
-        expect(data[0].hitMetadata.distance).toBeDefined();
-        done();
+      expect(data[0].hitMetadata.bearing).toBeDefined();
+      expect(data[0].hitMetadata.distance).toBeDefined();
+      done();
 
     });
     test('should be ordered by distance', async done => {
