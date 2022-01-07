@@ -1,4 +1,4 @@
-import * as fb from 'firebase/app';
+import fb from 'firebase/app';;
 
 /**
  * Represents Firebase JS (Web) or Firebase Admin (Node)
@@ -171,7 +171,7 @@ export type GeoJsonProperties = { [name: string]: any } | null;
 export interface Feature<
   G extends GeometryObject | null = Geometry,
   P = GeoJsonProperties
-> extends GeoJsonObject {
+  > extends GeoJsonObject {
   type: 'Feature';
   /**
    * The feature's geometry
@@ -195,7 +195,7 @@ export interface Feature<
 export interface FeatureCollection<
   G extends GeometryObject | null = Geometry,
   P = GeoJsonProperties
-> extends GeoJsonObject {
+  > extends GeoJsonObject {
   type: 'FeatureCollection';
   features: Array<Feature<G, P>>;
 }

@@ -3,7 +3,7 @@ import { FirebaseSDK } from './interfaces';
 import { GeoFireQuery } from './query';
 import { encode, distance, bearing } from './util';
 
-import * as fb from 'firebase/app';
+import fb from 'firebase/app';
 
 export interface FirePoint {
   geopoint: fb.firestore.GeoPoint,
@@ -11,7 +11,7 @@ export interface FirePoint {
 }
 
 export class GeoFireClient {
-  constructor(public app: FirebaseSDK) {}
+  constructor(public app: FirebaseSDK) { }
   /**
    * Creates reference to a Firestore collection that can be used to make geoqueries
    * @param  {firestore.CollectionReference | firestore.Query | string} ref path to collection
@@ -43,11 +43,11 @@ export class GeoFireClient {
    * @returns number
    */
   distance(from: FirePoint, to: FirePoint): number {
-      return distance(
-        [from.geopoint.latitude, from.geopoint.longitude],
-        [to.geopoint.latitude, to.geopoint.longitude]
-      )
-    }
+    return distance(
+      [from.geopoint.latitude, from.geopoint.longitude],
+      [to.geopoint.latitude, to.geopoint.longitude]
+    )
+  }
 
   /**
    * Haversine bearing between points
@@ -56,12 +56,12 @@ export class GeoFireClient {
    * @returns number
    */
   bearing(from: FirePoint, to: FirePoint): number {
-      return bearing(
-        [from.geopoint.latitude, from.geopoint.longitude],
-        [to.geopoint.latitude, to.geopoint.longitude]
-      )
-    }
+    return bearing(
+      [from.geopoint.latitude, from.geopoint.longitude],
+      [to.geopoint.latitude, to.geopoint.longitude]
+    )
   }
+}
 /**
  * Initialize the library by passing it your Firebase app
  * @param  {firestore.FirebaseApp} app
